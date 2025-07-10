@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@theme {
+    --font-bevietnam: "bevietnam";
+}
 input {
-  outline: none;
+    outline: none;
 }
