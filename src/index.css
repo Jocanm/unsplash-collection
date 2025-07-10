@@ -3,3 +3,6 @@
 @theme {
     --font-bevietnam: "bevietnam";
 }
+input {
+    outline: none;
+}
