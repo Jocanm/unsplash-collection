@@ -1,48 +1,28 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import CustomButton from "./components/ui/CustomButton";
-import CustomInput from "./components/ui/CustomInput";
 import { Search } from "lucide-react";
+import CustomInput from "./components/ui/CustomInput";
+import { Navbar } from "./components/ui/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div className="h-screen">
+      <div className="flex flex-col h-full">
+        <Navbar />
+        <div className="flex flex-col items-center h-full justify-center px-4">
+          <h1 className="text-4xl text-[#121826] font-bold mb-2">Search</h1>
+          <p className="text-[#121826] mb-6 text-center">
+            Search high-resolution images from Unsplash
+          </p>
 
-        <div>
-          <CustomInput
-            icon={<Search />}
-            type="text"
-            placeholder="Enter your keywords..."
-          />
+          <div className="w-full sm:w-[528px]">
+            <CustomInput
+              icon={<Search />}
+              type="text"
+              placeholder="Enter your keywords..."
+            />
+          </div>
         </div>
-        <p className="font-outfit">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-        <CustomButton>
-          <p>Home</p>
-        </CustomButton>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
 
