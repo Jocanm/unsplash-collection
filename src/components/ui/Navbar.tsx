@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import CustomButton from "./CustomButton";
 
 export const Navbar = () => {
@@ -7,8 +8,21 @@ export const Navbar = () => {
         <img src="/logo.png" alt="App logo" />
       </div>
       <div className="flex items-center gap-4">
-        <CustomButton>Home</CustomButton>
-        <CustomButton variant="secondary">Collections</CustomButton>
+        <NavLink to="/search" end>
+          {({ isActive }) => (
+            <CustomButton variant={isActive ? "primary" : "secondary"}>
+              Home
+            </CustomButton>
+          )}
+        </NavLink>
+
+        <NavLink to="/collections" end>
+          {({ isActive }) => (
+            <CustomButton variant={isActive ? "primary" : "secondary"}>
+              Collections
+            </CustomButton>
+          )}
+        </NavLink>
       </div>
     </nav>
   );
