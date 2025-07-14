@@ -1,17 +1,24 @@
-import { createBrowserRouter, redirect } from "react-router";
-import App from "../App";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { SearchPage } from "../pages/SearchPage";
 import { CollectionsPage } from "../pages/CollectionsPage";
+import { Navbar } from "../components/ui/Navbar";
+import { ROUTES } from "./routes.enum";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      { index: true, loader: () => redirect("/search") },
-      { path: "search", element: <SearchPage /> },
-      { path: "collections", element: <CollectionsPage /> },
-      { path: "/*", loader: () => redirect("/search") },
-    ],
-  },
-]);
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path={ROUTES.search} element={<SearchPage />} />
+        <Route path={ROUTES.collections} element={<CollectionsPage />} />
+        <Route
+          path={ROUTES.matchAll}
+          element={<Navigate to={ROUTES.search} />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default Router;

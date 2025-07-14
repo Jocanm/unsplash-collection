@@ -1,12 +1,10 @@
-import { Outlet } from "react-router";
-import { Navbar } from "./components/ui/Navbar";
+import Router from "./routes/router";
 
 function App() {
   return (
     <div className="h-screen">
       <div className="flex flex-col h-full">
-        <Navbar />
-        <Outlet />
+        <Router />
       </div>
     </div>
   );
