@@ -1,4 +1,4 @@
-export interface apiResponse {
+export interface ApiResponse {
   id: string;
   slug: string;
   createdAt: string;
