@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router";
+import { SEARCH_KEY } from "../constants";
 import { useSearchImagesQuery } from "./queries/useSearchImagesQuery";
-
-export const SEARCH_KEY = "query";
 
 export const useSearchImages = () => {
   const [searchParams, setSearchParams] = useSearchParams();

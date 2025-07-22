@@ -1,4 +1,4 @@
-export interface ApiResponse {
+export interface Image {
   id: string;
   slug: string;
   createdAt: string;

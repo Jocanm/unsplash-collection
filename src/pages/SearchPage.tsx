@@ -1,7 +1,6 @@
 import { Search } from "lucide-react";
 import CustomInput from "../components/ui/CustomInput";
 import { useSearchImages } from "../hooks/useSearchImages";
-import type { ApiResponse } from "../interfaces/api";
 
 export const SearchPage = () => {
   const { textValue, setTextValue, handleSubmit, searchResult } =
@@ -26,7 +25,7 @@ export const SearchPage = () => {
       </form>
 
       <div className="grid grid-cols-4 gap-4 ">
-        {searchResult?.data?.map((image: ApiResponse) => (
+        {searchResult?.data?.map((image) => (
           <div key={image.id}>
             <img
               src={image.smallUrl}

@@ -1,11 +1,9 @@
-import { SEARCH_KEY } from "../hooks/useSearchImages";
-import type { ApiResponse } from "../interfaces/api";
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL as string;
+import { BACKEND_URL, SEARCH_KEY } from "../constants";
+import type { Image } from "../interfaces/images.interfaces";
 
 export const getImages = async (
   query: string | null
-): Promise<ApiResponse[]> => {
+): Promise<Image[]> => {
   if (!query) {
     throw new Error("Query is required");
   }
