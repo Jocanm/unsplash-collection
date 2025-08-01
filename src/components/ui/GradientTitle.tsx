@@ -7,7 +7,7 @@ interface GradientTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 const GradientTitle = ({ children, ...props }: GradientTitleProps) => {
   return (
     <h1
-      className="bg-gradient-to-r  from-[#F2C593] to-[#8A3282]  inline-block text-transparent bg-clip-text font-medium text-[40px]"
+      className="bg-gradient-to-r from-[#F2C593] to-[#8A3282] inline-block text-transparent bg-clip-text font-medium text-[40px]"
       {...props}
     >
       {children}
