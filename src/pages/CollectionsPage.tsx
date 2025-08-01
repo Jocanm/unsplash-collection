@@ -1,3 +1,4 @@
+import { CollectionCard } from "../components/ui/CollectionCard";
 import GradientTitle from "../components/ui/GradientTitle";
 import { UNSPLASH_LICENSE } from "../constants";
 import { useCollectionsQuery } from "../hooks/queries/useCollectionsQuery";
@@ -20,25 +21,13 @@ export const CollectionsPage = () => {
         </a>
       </p>
 
-      <div className=" w-full px-[72px] grid grid-cols-3 h-full">
+      <div className="w-full max-w-[1200px] px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {data?.map((collection) => (
-          <div
+          <CollectionCard
             key={collection.id}
-            className="w-[357px] h-[283px] gap-4  overflow-hidden border border-red-700 "
-          >
-            <div className=" grid grid-cols-2 grid-rows-2">
-              {collection.images?.map((image) => (
-                <img src={image} className="w-full h-full object-cover" />
-              ))}
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-medium">{collection.name}</span>
-              <span className="font-normal text-[#ABA8A8]">
-                {collection.images.length}{" "}
-                {collection.images.length === 1 ? "photo" : "photos"}
-              </span>
-            </div>
-          </div>
+            name={collection.name}
+            images={collection.images}
+          />
         ))}
       </div>
     </div>
