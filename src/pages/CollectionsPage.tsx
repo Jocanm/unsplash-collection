@@ -23,10 +23,7 @@ export const CollectionsPage = () => {
 
       <div className="w-full px-[72px] h-full gap-8 mt-14 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
         {data?.map((collection) => (
-          <div
-            key={collection.id}
-            className="h-[283px] gap-4 overflow-hidden"
-          >
+          <div key={collection.id} className="gap-4">
             <CollectionImages images={collection.images} />
             <div className="flex flex-col gap-1 mt-4">
               <span className="font-medium">{collection.name}</span>
