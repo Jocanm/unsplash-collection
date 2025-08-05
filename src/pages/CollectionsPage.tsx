@@ -1,10 +1,11 @@
 import { CollectionImages } from "../components/CollectionImages";
 import GradientTitle from "../components/ui/GradientTitle";
+import { GridSkeleton } from "../components/ui/GridSkeleton";
 import { UNSPLASH_LICENSE } from "../constants";
 import { useCollectionsQuery } from "../hooks/queries/useCollectionsQuery";
 
 export const CollectionsPage = () => {
-  const { data = [] } = useCollectionsQuery();
+  const { data, isLoading } = useCollectionsQuery();
 
   return (
     <div className="flex flex-col items-center justify-center py-9 max-w-7xl mx-auto w-full">
@@ -22,18 +23,22 @@ export const CollectionsPage = () => {
       </p>
 
       <div className="w-full px-[72px] h-full gap-8 mt-14 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
-        {data?.map((collection) => (
-          <div key={collection.id} className="gap-4">
-            <CollectionImages images={collection.images} />
-            <div className="flex flex-col gap-1 mt-4">
-              <span className="font-medium">{collection.name}</span>
-              <span className="font-normal text-[#ABA8A8]">
-                {collection.images.length}{" "}
-                {collection.images.length === 1 ? "photo" : "photos"}
-              </span>
+        {isLoading ? (
+          <GridSkeleton item={2} />
+        ) : (
+          data?.map((collection) => (
+            <div key={collection.id} className="gap-4">
+              <CollectionImages images={collection.images} />
+              <div className="flex flex-col gap-1 mt-4">
+                <span className="font-medium">{collection.name}</span>
+                <span className="font-normal text-[#ABA8A8]">
+                  {collection.images.length}{" "}
+                  {collection.images.length === 1 ? "photo" : "photos"}
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

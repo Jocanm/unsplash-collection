@@ -1,6 +1,10 @@
-const items = Array.from({ length: 20 });
 
-export const GridSkeleton = () => {
+
+interface skeletonProps {
+  item?: number
+}
+export const GridSkeleton = ({ item = 4 }: skeletonProps) => {
+  const items = Array.from({ length: item });
   return (
     <>
       {items.map((_, i) => (
