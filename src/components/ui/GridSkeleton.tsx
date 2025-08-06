@@ -1,6 +1,13 @@
-const items = Array.from({ length: 20 });
+import { useMemo } from "react";
 
-export const GridSkeleton = () => {
+interface skeletonProps {
+  item?: number;
+}
+export const GridSkeleton = ({ item = 4 }: skeletonProps) => {
+  const items = useMemo(
+    () => Array.from({ length: item }, (_, i) => i + 1),
+    [item]
+  );
   return (
     <>
       {items.map((_, i) => (
