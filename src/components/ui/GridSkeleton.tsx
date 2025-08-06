@@ -1,10 +1,13 @@
-
+import { useMemo } from "react";
 
 interface skeletonProps {
-  item?: number
+  item?: number;
 }
 export const GridSkeleton = ({ item = 4 }: skeletonProps) => {
-  const items = Array.from({ length: item });
+  const items = useMemo(
+    () => Array.from({ length: item }, (_, i) => i + 1),
+    [item]
+  );
   return (
     <>
       {items.map((_, i) => (
